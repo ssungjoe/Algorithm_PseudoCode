@@ -1,7 +1,7 @@
 # 이진탐색트리
 - 탐색
 ```pseudo
-Alg findElement(k)
+Alg findElement(k) : O(n)
     input binary search tree T, key k
     output element with key k
 
@@ -27,7 +27,7 @@ Alg treeSearch(v, k)
 ```
 - 삽입
 ```pseudo
-Alg insertItem(k, e)
+Alg insertItem(k, e)  : O(n)
     input binary search tree T, key k, element e
     output none
 
@@ -41,7 +41,7 @@ Alg insertItem(k, e)
 ```
 - 삭제
 ```pseudo
-Alg removeElement(k)
+Alg removeElement(k)  : O(n)
     input binary seach tree t, key k
     output element with key k
 
@@ -67,7 +67,7 @@ Alg removeElement(k)
 # AVL 트리
 - 삽입
 ```pseudo
-Alg insertItem(k ,e)
+Alg insertItem(k ,e) : O(log n)
     input AVL tree T, key k, element e
     output none
 
@@ -92,7 +92,7 @@ Alg searchAndFixAfterInsertion(w)
 5. return
 ```
 ```pseudo
-Alg restructure(x, y, z)
+Alg restructure(x, y, z) : O(1)
     input a node x of a binary search tree T that has both a parent y and a grandparent z
     output tree T after restructuring in involving nodes x, y and z
 
@@ -106,7 +106,7 @@ Alg restructure(x, y, z)
 ```
 - 삭제
 ```pseudo
-Alg removeElement(k)
+Alg removeElement(k) : O(log n)
     input AVL tree T, key k
     output element with key k
 
@@ -144,7 +144,7 @@ Alg searchAndFixAfterRemoval(w)
 # 스플레이 트리
 - 트리의 노드가 탐색 또는 갱신을 위해 접근된 후 플레이되는 이진 탐색 트리
 ```pseudo
-Alg splay(x) : O(h) {h는 스플레이 트리의 높이}
+Alg splay(x) : O(h)
     input internal node x
     output none
 
