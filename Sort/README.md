@@ -164,6 +164,7 @@ Alg heapSort(L)
 ```
 
 - 제자리 힙 정렬
+  + 최대힙을 사용해 구현한다
 ```pseudo
 Alg inPlaceHeapSort(A)
     input array A of n keys
@@ -201,4 +202,106 @@ Alg downHeap(i, last)
        return
 7. A[i] ↔ A[greater]
 8. downHeap(greater, last)
+```
+
+- 상향식 힙 생성 (재귀)
+```pseudo
+Alg buildHeap(L)
+    input list L storing n keys
+    output heap T storing the keys in L
+
+1. T ← convertToCompleteBinaryTree(L)
+2. rBuilHeap(v)
+3. return T
+```
+```pseudo
+Alg rBuildHeap(v)
+    input node v
+    output a heap with root v
+
+1. if (isInternal(v))
+       rBuildHeap(leftChild(v))
+       rBuildHeap(rightChild(v))
+       downHeap(v)
+2. return
+```
+- 비재귀적 상향식 힙 생성
+```pseudo
+Alg buildHeap(A)
+    input array A of n keys
+    output heap A of size n
+
+1. for i ← ⌊ n/2 ⌋ downto 1
+    downHeap(i, n)
+2. return
+```
+
+<br>
+
+# 합병정렬
+```pseudo
+Alg mergeSort(L)
+    input list L with n elements
+    output sorted list L
+
+1. if (L.size() > 1)
+       L₁, L₂ ← partition(L, n/2)       {분할}
+       mergeSort(L₁)                    {재귀}
+       mergeSort(L₂)
+       L ← merge(L₁, L₂)                {통치}
+2. return
+
+```
+- 합병
+```pseudo
+Alg merge(L₁, L₂)
+    input sorted list L₁ and L₂ with n/2 elements each
+    output sorted list of L₁∪L₂
+
+1. L ← empty list
+2. whlie (!L₁.isEmpty() & !L₂.isEmpty())
+       if (L₁.get(1) ≤ L₂.get(1))
+           L.addLast(L₁.removeFirst())
+       else
+           L.addLast(L₂.removeFirst())
+3. while (!L₁.isEmpty())
+       L.addLast(L₁.removeFirst())
+4. while (!L₂.isEmpty())
+       L.addLast(L₂.removeFirst())
+5. return L
+```
+
+<br>
+
+# 퀵 정렬
+```pseudo
+Alg quickSort(L)
+    input list L with n elements
+    output sorted list L
+
+1. if (L.size() > 1)
+       k ← a position in L
+       LT, EQ, GT ← partition(L, k)         {분할}
+       quickSort(LT)                        {재귀}
+       quickSort(GT)
+       L ← merge(LT, EQ, GT)                {통치}
+2. return
+```
+- 분할
+```pseudo
+Alg partition(L, k)
+    input list L with n elements, position k of pivot
+    output sublists LT, EQ, GT of the elements of L, less than, equal to, or greater than pivot, resp.
+
+1. p ← L.get(k)                 {pivot}
+2. LT, EQ, GT ← empty list
+3. while (!L.isEmpty())
+       e ← L.removeFirst()
+       if (e < p)
+           LT.addLast(e)
+       elseif (e = p)
+           EQ.addLast(e)
+       else                     {e > p}
+           GT.addLast(e)
+5. return LT, EQ, GT
 ```
