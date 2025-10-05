@@ -146,3 +146,59 @@ Alg reduceExternal(z)
 5. putnode(w)
 6. return zs
 ```
+
+- 힙 정렬
+```pseudo
+Alg heapSort(L)
+    input list L
+    output sorted list L
+
+1. H ← empty heap
+2. while (!L.isEmpty)           {1기}
+       k ← L.removeFirst()
+       H.insertItem(K)
+3. while (!H.isEmpty)           {2기}
+       k ← H.removeMin()
+       L.addLast(k)
+4. return
+```
+
+- 제자리 힙 정렬
+```pseudo
+Alg inPlaceHeapSort(A)
+    input array A of n keys
+    output sorted array A
+
+1. builHeap(A)
+2. for i ← n downto 2
+       A[1] ↔ A[i]
+       downHeap(1, i-1)
+3. return
+```
+```pseudo
+Alg buildHeap(A)
+    input array A of n keys
+    output heap A of size n
+
+1. for i ← 1 to n
+       insertItem(A[i])
+2. return
+```
+```pseudo
+Alg downHeap(i, last)
+    input index i of array A representing a maxheap of size last
+    output none
+
+1. left ← 2i
+2. right ← 2i + 1
+3. if (left > last)         {외부노드}
+       return
+4. greater ← left
+5. if (right ≤ last)
+       if (key(A[right]) > key(A[greater]))
+           greater ← right
+6. if (key(A[i]) ≥ key(A[greater]))
+       return
+7. A[i] ↔ A[greater]
+8. downHeap(greater, last)
+```
