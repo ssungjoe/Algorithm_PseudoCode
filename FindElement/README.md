@@ -142,7 +142,8 @@ Alg searchAndFixAfterRemoval(w)
 <br>
 
 # 스플레이 트리
-- 트리의 노드가 탐색 또는 갱신을 위해 접근된 후 플레이되는 이진 탐색 트리
+- 트리의 노드가 탐색 또는 갱신을 위해 접근된 후 스플레이되는 이진 탐색 트리
+- 노드 x를 스플레이 = 연속적 재구성으로 노드 x를 루트로 이동시킴 
 ```pseudo
 Alg splay(x) : O(h)
     input internal node x

@@ -324,7 +324,7 @@ Alg inPlaceQuickSort(L, l, r)
 ```pseudo
 Alg inPlacePartition(A, l, r, k)
     input array A[l..r] of distinct elements, index l, r, k
-    output final index of th pivoit resulting from partitioning A[l..r] into LT, piviot, GT
+    output final index of th pivot resulting from partitioning A[l..r] into LT, pivot, GT
 
 1. p ← A[k]                             {pivot}
 2. A[k] ↔ A[r]                          {hide pivot}
