@@ -275,7 +275,7 @@ Alg merge(L₁, L₂) : O(n)
 
 # 퀵 정렬
 ```pseudo
-Alg quickSort(L) : O(n^2)
+Alg quickSort(L) : O(n log n) (평균적으로)
     input list L with n elements
     output sorted list L
 
