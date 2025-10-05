@@ -1,7 +1,7 @@
 # 해시테이블
 - 충돌해결 : 분리연쇄법
 ```pseudo
-Alg findElement(k)
+Alg findElement(k) : O(n)
     input bucket array A[0..M-1] hash function h, key k
     output element with key k
 
@@ -9,13 +9,13 @@ Alg findElement(k)
 2. return A[v].findElement(k)
 ```
 ```pseudo
-Alg insertItem(k, e)
+Alg insertItem(k, e) : O(n)
 1. v ← h(k)
 2. A[v].insertItem(k, e)
 3. return
 ```
 ```pseudo
-Alg removeElement(k)
+Alg removeElement(k) : O(n)
 1. v ← h(k)
 2. return A[v].removeElement(k)
 ```
@@ -30,7 +30,7 @@ Alg initBuckeyArray()
 ```
 - 개방주소법 (탐색, 삽입)
 ```pseudo
-Alg findElement(k)
+Alg findElement(k) : O(n)
     input bucket array A[0..M-1], hase function h, key k
     output element with key k
 
@@ -47,7 +47,7 @@ Alg findElement(k)
 4. return NoSuchKey
 ```
 ```pseudo
-Alg insertItem(k, e)
+Alg insertItem(k, e) : O(n)
 1. v ← h(k)
 2. i ← 0
 3. while (i < M)
