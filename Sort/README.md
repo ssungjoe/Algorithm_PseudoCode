@@ -305,3 +305,38 @@ Alg partition(L, k)
            GT.addLast(e)
 5. return LT, EQ, GT
 ```
+
+- 제자리 퀵 정렬
+```pseudo
+Alg inPlaceQuickSort(L, l, r)
+    input list L, position l, r
+    output list L with elements of position from l to r rearranged in increasing order
+
+1. if (l ≥ r)
+       return
+2. k ← a position between l and r
+3. a, b ← inPlacePartition(L, l, r, k)
+4. inPlaceQuickSort(L, l, a-1)
+5. inPlaceQuickSort(L, b+1, r)
+```
+
+- 제자리 분할
+```pseudo
+Alg inPlacePartition(A, l, r, k)
+    input array A[l..r] of distinct elements, index l, r, k
+    output final index of th pivoit resulting from partitioning A[l..r] into LT, piviot, GT
+
+1. p ← A[k]                             {pivot}
+2. A[k] ↔ A[r]                          {hide pivot}
+3. i ← l
+4. j ← r-1
+5. while (i ≤ j)
+       while (i ≤ j & A[i] ≤ p)
+           i ← i+1
+       while (j ≥ i & A[j] ≥ p)
+           j ← j-1
+       if (i < j)
+           A[i] ↔ A[j]                  {replace pivot}
+6. A[i] ↔ A[r]
+7. return i                             {index of pivot}
+```
