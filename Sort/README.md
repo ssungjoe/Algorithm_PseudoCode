@@ -19,7 +19,7 @@ Alg PQ-Sort(L)
 - 제자리 선택 정렬
   + 다음은 입력이 배열임을 전제로 함
 ```pseudo
-Alg inPlaceSelectionSort(A)
+Alg inPlaceSelectionSort(A) : O(n^2)
     input array A of n keys
     output sorted array A
 
@@ -34,7 +34,7 @@ Alg inPlaceSelectionSort(A)
 - 제자리 삽입 정렬
   + 입력이 배열임을 전제로 함
 ```pseudo
-Alg inPlaceInsertionSort(A)
+Alg inPlaceInsertionSort(A) : O(n^2)
     input array A of n keys
     output sorted array A
 
@@ -53,7 +53,7 @@ Alg inPlaceInsertionSort(A)
 # 힙
 - 힙에 삽입
 ```pseudo
-Alg insertItem(k)
+Alg insertItem(k) : O(log n)
     input key k, node last
     output none
 
@@ -65,7 +65,7 @@ Alg insertItem(k)
 6. return
 ```
 ```pseudo
-Alg upHeap(v)
+Alg upHeap(v) : O(log n)
     input node v
     output none
 
@@ -96,7 +96,7 @@ Alg expandExternal(z)
 - 힙에서 삭제
   + removeMin은 힙으로부터 루트 키를 삭제
 ```pseudo
-Alg removeMin()
+Alg removeMin() : O(log n)
     input node last
     output key
 
@@ -110,7 +110,7 @@ Alg removeMin()
 8. return k
 ```
 ```pseudo
-Alg downHeap(v)
+Alg downHeap(v) : O(log n)
     input node v whose left and right subtrees are heaps
     output a heap with root v
 
@@ -149,7 +149,7 @@ Alg reduceExternal(z)
 
 - 힙 정렬
 ```pseudo
-Alg heapSort(L)
+Alg heapSort(L) : O(n log n)
     input list L
     output sorted list L
 
@@ -206,7 +206,7 @@ Alg downHeap(i, last)
 
 - 상향식 힙 생성 (재귀)
 ```pseudo
-Alg buildHeap(L)
+Alg buildHeap(L) : O(n)
     input list L storing n keys
     output heap T storing the keys in L
 
@@ -240,7 +240,7 @@ Alg buildHeap(A)
 
 # 합병정렬
 ```pseudo
-Alg mergeSort(L)
+Alg mergeSort(L) : O(n log n)
     input list L with n elements
     output sorted list L
 
@@ -254,7 +254,7 @@ Alg mergeSort(L)
 ```
 - 합병
 ```pseudo
-Alg merge(L₁, L₂)
+Alg merge(L₁, L₂) : O(n)
     input sorted list L₁ and L₂ with n/2 elements each
     output sorted list of L₁∪L₂
 
@@ -275,7 +275,7 @@ Alg merge(L₁, L₂)
 
 # 퀵 정렬
 ```pseudo
-Alg quickSort(L)
+Alg quickSort(L) : O(n^2)
     input list L with n elements
     output sorted list L
 
@@ -289,7 +289,7 @@ Alg quickSort(L)
 ```
 - 분할
 ```pseudo
-Alg partition(L, k)
+Alg partition(L, k) : O(n)
     input list L with n elements, position k of pivot
     output sublists LT, EQ, GT of the elements of L, less than, equal to, or greater than pivot, resp.
 
